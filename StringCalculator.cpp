@@ -7,7 +7,7 @@
 
 class StringCalculator {
 public:
-    int Add(const std::string& numbers) {
+    int add(const std::string& numbers) {
         if (numbers.empty()) return 0;
 
         std::vector<int> nums = ParseNumbers(numbers);
@@ -50,27 +50,27 @@ void RunTests() {
     StringCalculator calc;
 
     // Test empty string
-    assert(calc.Add("") == 0);
+    assert(calc.add("") == 0);
 
     // Test single number
-    assert(calc.Add("1") == 1);
-    assert(calc.Add("5") == 5);
+    assert(calc.add("1") == 1);
+    assert(calc.add("5") == 5);
 
     // Test two numbers
-    assert(calc.Add("1,2") == 3);
-    assert(calc.Add("3,4") == 7);
+    assert(calc.add("1,2") == 3);
+    assert(calc.add("3,4") == 7);
 
     // Test multiple numbers
-    assert(calc.Add("1,2,3") == 6);
-    assert(calc.Add("4,5,6,7") == 22);
+    assert(calc.add("1,2,3") == 6);
+    assert(calc.add("4,5,6,7") == 22);
     
     // Test new line as separator
-    assert(calc.Add("1\n2,3") == 6);
-    assert(calc.Add("1\n2\n3") == 6);
+    assert(calc.add("1\n2,3") == 6);
+    assert(calc.add("1\n2\n3") == 6);
 
     // Test negative number exception
     try {
-        calc.Add("1,-2");
+        calc.add("1,-2");
     } catch (const std::invalid_argument& e) {
         std::cout << e.what() << std::endl;  // Expected negative number exception
     }
